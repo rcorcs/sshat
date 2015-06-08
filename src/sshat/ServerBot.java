@@ -16,7 +16,7 @@ import org.apache.commons.exec.LogOutputStream;
 import org.apache.commons.exec.CommandLine;
 
 public class ServerBot extends CryptBot {
-	public ServerBot(String name, String keyString) throws GeneralSecurityException {
+	public ServerBot(String name, char[] keyString) throws GeneralSecurityException {
 		super(name, keyString);
 	}
 

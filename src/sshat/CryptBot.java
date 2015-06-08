@@ -10,12 +10,12 @@ public abstract class CryptBot extends PircBot {
 	private SecretKey key;
 	private IvParameterSpec p;
 
-	public CryptBot(String name, String keyString) throws GeneralSecurityException {
+	public CryptBot(String name, char[] keyString) throws GeneralSecurityException {
 		setName(name);
         
 		byte[] keyBytes = new byte[24];
-		int length = Math.min(keyBytes.length, keyString.length( ));
-		System.arraycopy(keyString.getBytes( ), 0, keyBytes, 0, length);
+		int length = Math.min(keyBytes.length, keyString.length);
+		System.arraycopy(new String(keyString).getBytes(), 0, keyBytes, 0, length);
         
 		DESedeKeySpec spec = new DESedeKeySpec(keyBytes);
 		SecretKeyFactory keyFactory = 
