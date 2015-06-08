@@ -1,9 +1,14 @@
 package sshat;
 
-import org.jibble.pircbot.*;
+import java.sql.Timestamp;
+import java.util.Date;
+
 import java.security.*;
 import javax.crypto.*;
 import javax.crypto.spec.*;
+
+import org.jibble.pircbot.*;
+
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.Executor;
 import org.apache.commons.exec.PumpStreamHandler;
@@ -28,7 +33,8 @@ public class ServerBot extends CryptBot {
 	    	}
 		}));
 		try{
-			System.out.println("sender:"+sender+" login:"+login+" hostname:"+hostname+" cmd:"+message.trim());
+			Timestamp timestamp = new Timestamp(new Date().getTime());
+			System.out.println("sender:"+sender+" login:"+login+" hostname:"+hostname+" time: "+timestamp+" cmd:"+message.trim());
 			//CommandLine cmd = CommandLine.parse(message.trim());
 			CommandLine cmd = new CommandLine("/bin/sh").addArgument("-c").addArgument(message.trim(), false);
 			int exitValue = ex.execute(cmd);
